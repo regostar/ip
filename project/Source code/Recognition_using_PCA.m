@@ -1,18 +1,22 @@
 clear all;
 close all;
 clc;
-num_people = 9;
+%num_people = 9;
+%num_face = 7;
+num_people = 2;
 num_face = 7;
 Img =[];
 temp=[];
 for a= 1:num_people
     for v=1:num_face
-    nom=strcat('C:\Users\dhanush kuber\Documents\MATLAB\att_faces\s',int2str(a),'\',int2str(v),'.pgm')
-        I=imread(nom);
-        I = imresize(I,[100,100]);
-    [m,n] = size(I);
-    image_dims = [100,100];
-    k=1;
+   % nom=strcat('C:\Users\dhanush kuber\Documents\MATLAB\att_faces\s',int2str(a),'\',int2str(v),'.pgm')
+    nom=strcat('C:\Users\Admin\Desktop\renu\project\Database\s',int2str(a),'\s (',int2str(v),').pgm')
+   
+   I=imread(nom);
+   I = imresize(I,[100,100]);
+   [m,n] = size(I);
+   image_dims = [100,100];
+     k=1;
     for i=1:m
         for j=1:n
          temp(k,1) = I(i,j);k=k+1;
@@ -56,10 +60,11 @@ for n = 1:num_eigenfaces
     imshow(evector',[mn,mx]);
 end
 
+%input_image=imread('C:\Users\Admin\Desktop\renu\project\Database\Group\best.jpg');
 
 
-input_image=imread('C:\Users\dhanush kuber\Documents\MATLAB\att_faces\s1\1.pgm');
-figure;imshow(input_image);
+input_image=imread('C:\Users\Admin\Desktop\renu\project\Database\s1\s (1).pgm');
+figure;imshow(input_image);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%input image to test
 
 input_image = imresize(input_image,[100,100]);
 input_image=double(input_image);
@@ -85,8 +90,10 @@ end
 match_score1=match_score;
 match_ix1=ceil((match_ix)/num_face);
 
-q= strcat('C:\Users\dhanush kuber\Documents\MATLAB\att_faces\s',int2str(match_ix1),'\1','.pgm');
-figure, imshow(q);
+%q= strcat('C:\Users\dhanush kuber\Documents\MATLAB\att_faces\s',int2str(match_ix1),'\1','.pgm');
+q= strcat('C:\Users\Admin\Desktop\renu\project\Database\face\s',int2str(match_ix1),'.jpg');
+
+figure, imshow(q);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
